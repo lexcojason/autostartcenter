@@ -44,7 +44,7 @@ try
   psdi.mbo.MboSetRemote groups = mbo.getMboSet("$GROUPUSER", "GROUPUSER", where);
   groups.moveFirst(); 
 
-  if ( !groups.isEmpty() && Integer.parseInt(wcs.getUISessionID()) > 0 ) 
+  if ( !groups.isEmpty() &&  wcs.getUISessionID() != null && !wcs.getUISessionID().isEmpty() ) 
   {
 String refreshUrl = wcs.getMaximoRequestURI()
                   + "?event=loadapp&value=startcntr&"
