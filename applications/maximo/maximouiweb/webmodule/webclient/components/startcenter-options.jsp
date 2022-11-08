@@ -44,14 +44,14 @@ try
   psdi.mbo.MboSetRemote groups = mbo.getMboSet("$GROUPUSER", "GROUPUSER", where);
   groups.moveFirst(); 
 
-  if ( !groups.isEmpty() &&  wcs.getUISessionID() != null && !wcs.getUISessionID().isEmpty() ) 
+  if ( !groups.isEmpty() &&  wcs.getUISessionUrlParameter() != null && !wcs.getUISessionID().isEmpty() ) 
   {
 String refreshUrl = wcs.getMaximoRequestURI()
                   + "?event=loadapp&value=startcntr&"
                   + wcs.getUISessionUrlParameter()
                   + wcs.getCSRFTokenParameter();
 %>
-<script type="text/javascript"> setTimeout('window.location=window.location' ,10000); </script>
+<script type="text/javascript"> setTimeout('window.location="<%=refreshUrl%>"' ,10000); </script>
 <% 
   } 
 } 
